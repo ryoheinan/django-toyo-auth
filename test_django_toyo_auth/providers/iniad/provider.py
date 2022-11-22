@@ -1,10 +1,10 @@
-from django_toyo_auth.providers.toyo.provider import ToyoProvider, ToyoMail, ToyoAccount
+from test_django_toyo_auth.providers.toyo.provider import ToyoProvider, ToyoMail, ToyoAccount
 
 
 class INIADMail(ToyoMail):
     domain = r"iniad\.org"
 
-    def get_entry_class(self): # n期
+    def get_entry_class(self):  # n期
         if self.get_is_student():
             return self.get_entry_year() - 2016
         else:
