@@ -34,3 +34,9 @@ jobs:
         run: poetry publish -r testpypi
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Upload tar.gz and whl to Release Assets
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/*.(tar.gz|whl)
