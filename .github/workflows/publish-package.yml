@@ -23,6 +23,7 @@ jobs:
       
       - name: Add Poetry Plugin
         run: |
+          poetry self add "poetry-dynamic-versioning[plugin]" &&
           poetry config repositories.testpypi https://test.pypi.org/legacy/ &&
           poetry config pypi-token.testpypi "${{ secrets.PYPI_TOKEN }}"
 
